@@ -1,6 +1,15 @@
 const slider = document.getElementById("volume");
 const label = document.getElementById("volLabel");
 const footer = document.getElementById("footerMsg");
+const resetBtn = document.getElementById("resetBtn");
+
+resetBtn.addEventListener("click", () => {
+  const defaultVolume = 1.0;
+  slider.value = defaultVolume;
+  label.textContent = defaultVolume.toFixed(1) + "x";
+  chrome.storage.local.set({ boostVolume: defaultVolume });
+  applyVolumeToTab(defaultVolume);
+});
 
 // Load saved volume boost on popup open
 chrome.storage.local.get(["boostVolume"], (result) => {

@@ -59,6 +59,22 @@
       color: var(--muted);
       text-align: center;
     }
+
+    button {
+        margin-top: 12px;
+        padding: 6px 12px;
+        font-size: 13px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.2s;
+    }
+
+    button:hover {
+        background-color: #e0e0e0;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +84,7 @@
     <span id="volLabel">1.0x</span>
   </div>
   <input type="range" id="volume" min="0" max="5" step="0.1" value="1">
+  <button id="resetBtn">↺ Reset to 1.0x</button>
   <div class="footer" id="footerMsg">Looking for video elements...</div>
 
   <script src="popup.js"></script>
