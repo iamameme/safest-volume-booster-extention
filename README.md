@@ -8,33 +8,36 @@ Most importantly, this has **as little permissions as possible**.
 
 I had a volume booster extention for years via the Chrome App Store. There is a large issue with extentions getting hijacked and malicious code being uploaded. Due to extentions auto-updating, a malicious actor uploaded an update to it and got access to all my sessions. **My bank session, my work sessions, etc.**
 
-## ⚠️ Why Extension Permissions Matter
+## ✅ Why This Extension Is Safe
 
-Most Chrome extensions request **broad or excessive permissions** like:
+This extension uses **minimal, privacy-friendly permissions**:
 
-- `tabs` – lets them read every page you visit
-- `storage` – lets them persist data across sessions
-- `host permissions` (e.g., `https://*/*`) – grants access to all sites
+| Permission   | Purpose                                      |
+|--------------|----------------------------------------------|
+| `activeTab`  | Only runs on the currently open tab when you interact with it |
+| `scripting`  | Injects volume boost logic — only on demand  |
+| `storage` (optional) | Stores your preferred volume boost level locally |
 
-**This opens the door to privacy risks**, data leaks, and abuse. Once installed, an extension can silently read or inject code into anything you browse — including emails, passwords, or bank sites.
+### 🚫 No access to:
+- Background scripts that run silently
+- All URLs or tabs in your browser
+- Any cookies, sessions, or page content unless you activate it
 
----
 
-## ✅ Why This Extension is Safe
+## ⚠️ Dangerous Chrome Extension Permissions
 
-This extension was built with **minimal permissions**:
+| Permission         | Can Steal Tokens | Can Redirect URLs | Abuse Potential                                                                 |
+|--------------------|------------------|--------------------|----------------------------------------------------------------------------------|
+| `"<all_urls>"`     | ✅ Yes            | ✅ Yes              | Full access to every page the user visits — steal tokens, inject JS, spy silently |
+| `webRequest*`      | ✅ Yes            | ✅ Yes              | Monitor, block, or rewrite network requests — can hijack sessions or inject payloads |
+| `tabs`             | ❌ No*            | ✅ Yes              | Redirect or open tabs to phishing or ad pages                                     |
+| `cookies`          | ✅ Yes            | ❌ No               | Read session cookies if also granted host access                                 |
+| `scripting` + `"<all_urls>"` | ✅ Yes   | ✅ Yes              | Run arbitrary JavaScript on any site, intercept form data, keystrokes, etc.       |
+| `activeTab`        | ❌ No             | ❌ No               | Only affects the currently active tab when the user interacts                     |
+| `storage`          | ❌ No             | ❌ No               | Can only store internal extension data, not page data                             |
 
-| Permission   | Why it’s needed |
-|--------------|-----------------|
-| `activeTab`  | To modify video elements on the current page when you use the popup |
-| `scripting`  | To inject volume boost logic |
-| `storage`   | To persist currently selected volume. ONLY has access to it's own storage, NOTHING else |
+> 💡 Extensions that request broad access (especially `"<all_urls>"`, `webRequest`, or `cookies`) can potentially hijack sessions, inject malicious scripts, or spy on sensitive data.
 
-> It does **not** request access to all tabs, all websites, or long-term storage.
-
-No background scripts, no trackers, no persistent storage — just a single-purpose tool that respects your browser and your privacy.
-
----
 
 ## Why you have to click the extention for it to apply
 
