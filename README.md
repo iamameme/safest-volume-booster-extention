@@ -4,6 +4,12 @@
 
 Most importantly, this has **as little permissions as possible**.
 
+![alt text](./preview.png)
+
+## 🛡️ Chrome App Store
+
+[Here!](https://chromewebstore.google.com/detail/safest-volume-booster/bahmikgppbhgdmadeafdmnjllhinkdcb?hl=en-US)
+
 ## Why I Made This
 
 I had a volume booster extention for years via the Chrome App Store. There is a large issue with extentions getting hijacked and malicious code being uploaded. Due to extentions auto-updating, a malicious actor uploaded an update to it and got access to all my sessions. **My bank session, my work sessions, etc.**
@@ -59,8 +65,3 @@ I didn't want to run anything in the background. It only has the ability to run 
 - Some sites (like Netflix or YouTube) may restrict audio routing due to strict CSP (Content Security Policy)
 - You may need to press **Play** once for the volume boost to take effect
 
----
-
-## 🛡️ Chrome App Store
-
-At some point
